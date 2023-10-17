@@ -1,5 +1,6 @@
 package com.example.interviewtestandroidapp.screens
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -106,16 +107,23 @@ fun signInBtn(navController: NavHostController, email: String, pass: String) {
     val context = LocalContext.current
     Button(onClick = {
         print("SignIn Click")
-        if (email.isEmpty()){
-            Toast.makeText(context,"Please Enter Email",Toast.LENGTH_LONG).show()
-            return@Button
+        if (validation(context,email,pass)) {
+            navController.navigate(NavigationScreen.HomeScreen.getFullRoute(email = email))  //NavigationScreen.HomeScreen.route
         }
-        if (pass.isEmpty()){
-            Toast.makeText(context,"Please Enter Password",Toast.LENGTH_LONG).show()
-            return@Button
-        }
-        navController.navigate(NavigationScreen.HomeScreen.getFullRoute(email = email))  //NavigationScreen.HomeScreen.route
     }, modifier = Modifier.size(width = 130.dp, height = 40.dp) ) {
         Text(text = "Sign In")
     }
+}
+
+fun validation(context: Context, email: String, pass: String): Boolean{
+    var isValid = true
+    if (email.isEmpty()){
+        Toast.makeText(context,"Please Enter Email",Toast.LENGTH_LONG).show()
+        return false
+    }
+    if (pass.isEmpty()){
+        Toast.makeText(context,"Please Enter Password",Toast.LENGTH_LONG).show()
+        return false
+    }
+    return isValid
 }

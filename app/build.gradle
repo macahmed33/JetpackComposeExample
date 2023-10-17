@@ -46,10 +46,22 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+
 }
 
 dependencies {
+    implementation 'androidx.test:monitor:1.4.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
 
+
+//    implementation 'androidx.test:monitor:1.4.0'
+//    implementation 'androidx.test.ext:junit-ktx:1.1.5'
     def nav_version = "2.3.5"
     def nav_compose_version = "2.5.0-alpha02"
 
@@ -107,6 +119,9 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+
 }
 
 // Allow references to generated code

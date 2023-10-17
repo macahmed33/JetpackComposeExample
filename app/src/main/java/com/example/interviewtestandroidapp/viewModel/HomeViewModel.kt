@@ -40,6 +40,7 @@ class HomeViewModel @Inject constructor(
         getData()
     }
 
+
     private fun getData() {
         viewModelScope.launch {
             try {

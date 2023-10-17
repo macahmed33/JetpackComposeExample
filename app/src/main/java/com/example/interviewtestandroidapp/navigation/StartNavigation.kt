@@ -16,7 +16,7 @@ import com.google.gson.Gson
 fun startNavigation(){
 
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = NavigationScreen.HomeScreen.route){
+    NavHost(navController = navController, startDestination = NavigationScreen.SignInScreen.route){
 
         composable(NavigationScreen.SignInScreen.route){
             SignInScreen(navController)

@@ -47,7 +47,7 @@ fun HomeScreen(navController: NavHostController ,email : String?) {
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold
             )
-        Text(text = "mohib@gmail.com",  //email ?: "-"
+        Text(text = email ?: "-",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal
         )

@@ -21,25 +21,6 @@ class AppServices @Inject constructor(private val apiInterface: APIInterface){
                 return@withContext Result.error("error")
             }
         }
-
-//        apiInterface.getMedicine().enqueue(object : retrofit2.Callback<MedicineModel> {
-//
-//            override fun onResponse(
-//                call: Call<MedicineModel>,
-//                response: Response<MedicineModel>
-//            ) {
-//                if (response.isSuccessful && response.code() == 200){
-//                    val body = response.body()
-//                    return Result.success(body)
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<MedicineModel>, t: Throwable) {
-//
-//            }
-//
-//        })
-//            return Result
     }
 
     }
